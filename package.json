@@ -1,0 +1,19 @@
+{
+  "name": "js-basics",
+  "version": "1.0.0",
+  "description": "js basics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s3fs/js-basics.git"
+  },
+  "author": "s3fs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s3fs/js-basics/issues"
+  },
+  "homepage": "https://github.com/s3fs/js-basics#readme"
+}
