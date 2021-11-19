@@ -1,6 +1,7 @@
 class TreeStore {
   constructor(props) {
     this.tree = props
+    this.treeMap = new Map(Object.entries(props).map(([k, v]) => [Number(k), v]))
   }
 
   getAll() {
@@ -8,18 +9,24 @@ class TreeStore {
   }
 
   getItem(id) {
-    return this.tree.find(x => x.id === id) || null
+    return this.treeMap.get(id - 1)
   }
 
   getChildren(id) {
-    return this.tree.filter(x => x.parent === id)
+    let res = []
+
+    for (let value of this.treeMap.values()) {
+      value.parent === id ? res = [...res, value] : null
+    }
+    
+    return res
   }
 
   getAllParents(id) {
     let arr = []
 
     const treeFind = (id) => {
-      return this.tree.find(x => x.id === id)
+      return this.treeMap.get(id - 1)
     }
 
     treeFind(id) ? arr = [...arr, treeFind(id)] : null
@@ -50,4 +57,11 @@ const items = [
 
 const ts = new TreeStore(items)
 
-console.log(ts.getAllParents(6))
+try {
+  console.log(ts.getAllParents(6))
+  console.log('three', ts.getItem(3))
+  console.log(ts.getChildren(2))
+  console.log(ts.getAllParents(7))
+} catch (e) {
+  console.log(`Whoopsie... ${e}`)
+}

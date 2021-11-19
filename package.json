@@ -16,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/s3fs/js-basics/issues"
   },
-  "homepage": "https://github.com/s3fs/js-basics#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+  "homepage": "https://github.com/s3fs/js-basics#readme"
 }
